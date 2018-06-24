@@ -6,28 +6,28 @@ class Company{
   public $email_address;
   public $address;
 
-  public function find_all(){
+  public static function find_all(){
     // global $database;
     // $result = $database->query("SELECT * FROM user_login WHERE account_type = 'company' and verify = 'verified'");
   
     return $result;
   }
 
-  public function find_by_id($id=0){
+  public static function find_by_id($id=0){
     global $database;
   $result = $database->query("SELECT * FROM user_login where id = {$id} LIMIT 1");
   $row = $database->fetch_array($result);
   return $row;
   }
 
-  public function find_by_sql($sql){
+  public static function find_by_sql($sql){
     global $database;
     $result = $database->query($sql);
     return $result;
   }
 
 }
-
+$test;
 $comp = new Company();
 $result = $comp->find_by_id(1);
 echo $result['userName'];
